@@ -6,6 +6,8 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
+    'plugin:import/recommended',
+    'plugin:import/typescript',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -18,8 +20,12 @@ module.exports = {
   plugins: [
     'react',
     '@typescript-eslint',
+    'eslint-plugin-import',
   ],
   rules: {
     'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx', 'tsx'] }],
+    'import/extensions': ['error', 'ignorePackages', {
+      tsx: 'never',
+    }],
   },
 };
