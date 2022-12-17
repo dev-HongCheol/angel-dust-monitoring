@@ -1,46 +1,68 @@
-# Getting Started with Create React App
+## setting
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### twailwind + eslint + prettier
 
-## Available Scripts
+```
+npx create-react-app angel-fnid-dust-monitoring --template typescript
+cd angel-fnid-dust-monitoring
+yarn add -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
 
-In the project directory, you can run:
+---
 
-### `npm start`
+### tailwind.config.js
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+],
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+### index.css
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### eslint
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+eslint --init
+yarn add -D eslint-plugin-prettier eslint-config-prettier
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+rules: {
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx','tsx'] }],
+},
+```
 
-### `npm run eject`
+-   react, typescript, broswer, aribnb
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### .prettierrc.js
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+module.exports = {
+    singleQuote: true,
+    // 문자열은 singleQuote로 ("" -> '')
+    semi: true,
+    //코드 마지막에 세미콜론이 있게 formatting
+    tabWidth: 4,
+    // 들여쓰기 너비는 4칸
+    trailingComma: 'all',
+    // 배열 키:값 뒤에 항상 콤마를 붙히도록 formatting
+    printWidth: 80,
+    // 코드 한줄이 maximum 80칸
+    arrowParens: 'avoid',
+    // 화살표 함수가 하나의 매개변수를 받을 때 괄호를 생략하게 formatting
+    endOfLine: "auto",
+    // windows에 뜨는 'Delete cr' 에러 해결
+};
+```
